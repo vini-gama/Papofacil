@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Papo Fácil — fichário de assuntos para puxar conversa</title>
+<meta name="description" content="Sorteie um assunto e receba sugestões de perguntas para começar ou continuar uma conversa, mesmo quando o assunto foi outra pessoa quem trouxe.">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="site-header">
+    <div>
+      <span class="eyebrow">Fichário de conversas</span>
+      <h1>Papo Fácil</h1>
+      <p>Puxe uma carta, escolha uma pergunta e dê o primeiro passo. Sem roteiro decorado — só um empurrãozinho.</p>
+    </div>
+    <button type="button" class="fav-toggle" id="favToggle" aria-pressed="false">
+      ★ Favoritas <span class="count" id="favCount">0</span>
+    </button>
+  </header>
+
+  <section class="filters" aria-label="Filtrar categorias de assuntos">
+    <div class="filters-row" id="filterChips">
+      <span class="filters-label">Assuntos:</span>
+      <!-- chips inseridos via JS -->
+    </div>
+  </section>
+
+  <main>
+    <div class="deck-area">
+      <div class="deck-stack">
+        <article class="card" id="card" aria-live="polite">
+          <div class="card-holes" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="card-tab" id="cardTab" hidden></span>
+          <div class="card-category" id="cardCategory" hidden>
+            <span class="dot" id="cardDot" aria-hidden="true"></span>
+            <span id="cardCategoryLabel"></span>
+          </div>
+          <h2 class="card-title" id="cardTitle">
+            <span class="card-empty">Puxe a primeira carta pra começar.</span>
+          </h2>
+          <span class="card-index" id="cardIndex"></span>
+        </article>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button type="button" class="btn btn-primary" id="drawBtn">🂠 Puxar uma carta</button>
+      <button type="button" class="btn btn-star" id="starBtn" aria-pressed="false" title="Guardar esta carta nas favoritas" disabled>☆</button>
+      <button type="button" class="btn btn-ghost" id="shuffleBtn">⟲ Embaralhar de novo</button>
+    </div>
+    <p class="hint">Atalho: aperte <kbd>Espaço</kbd> pra puxar a próxima carta</p>
+
+    <section class="question-columns" aria-label="Sugestões de perguntas">
+      <div class="q-panel starters">
+        <h2>Pra puxar o assunto</h2>
+        <ul class="q-list" id="startersList">
+          <li><span class="num">·</span> <span>Puxe uma carta pra ver as sugestões aqui.</span></li>
+        </ul>
+      </div>
+      <div class="q-panel followups">
+        <h2>Se o assunto já foi trazido por alguém</h2>
+        <ul class="q-list" id="followupsList">
+          <li><span class="num">·</span> <span>Puxe uma carta pra ver as sugestões aqui.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="favorites-panel" id="favoritesPanel" hidden>
+      <h2>Cartas favoritas</h2>
+      <ul class="fav-list" id="favList"></ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>Suas favoritas ficam salvas só neste navegador — nada é enviado pra fora.</span>
+    <span>Feito para tornar mais fácil dar o primeiro passo.</span>
+  </footer>
+
+</div>
+
+<script src="js/topics.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
